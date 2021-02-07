@@ -1,0 +1,217 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 917504 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3321), pid=4560, tid=2024
+#
+# JRE version:  (15.0.2+7) (build )
+# Java VM: OpenJDK 64-Bit Server VM (15.0.2+7-27, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -javaagent:C:\Program Files\JetBrains2\IntelliJ IDEA Community Edition 2020.2.3\lib\idea_rt.jar=58658:C:\Program Files\JetBrains2\IntelliJ IDEA Community Edition 2020.2.3\bin -Dfile.encoding=UTF-8 ru.netology.MainKt
+
+Host: Intel(R) Core(TM) i5-6200U CPU @ 2.30GHz, 4 cores, 3G,  Windows 10 , 64 bit Build 19041 (10.0.19041.662)
+Time: Sun Feb  7 22:44:19 2021 RTZ 1 (зима) elapsed time: 0.052732 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002577d17f0c0):  JavaThread "Unknown thread" [_thread_in_vm, id=2024, stack(0x000000dd11d00000,0x000000dd11e00000)]
+
+Stack: [0x000000dd11d00000,0x000000dd11e00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x62ae9a]
+V  [jvm.dll+0x7817a9]
+V  [jvm.dll+0x782f03]
+V  [jvm.dll+0x783563]
+V  [jvm.dll+0x216325]
+V  [jvm.dll+0x6281d9]
+V  [jvm.dll+0x61cf55]
+V  [jvm.dll+0x2cffdd]
+V  [jvm.dll+0x2cfe42]
+V  [jvm.dll+0x2d5e1c]
+V  [jvm.dll+0x325933]
+V  [jvm.dll+0x324fd4]
+V  [jvm.dll+0x2a6f5a]
+V  [jvm.dll+0x2a80f8]
+V  [jvm.dll+0x75e241]
+V  [jvm.dll+0x3341c4]
+V  [jvm.dll+0x73e926]
+V  [jvm.dll+0x3b7557]
+V  [jvm.dll+0x3b8fe1]
+C  [jli.dll+0x52fb]
+C  [ucrtbase.dll+0x214c2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x4d0d1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff8013b4ff0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000002577d1ac000 GCTaskThread "GC Thread#0" [stack: 0x000000dd11e00000,0x000000dd11f00000] [id=8896]
+  0x000002577d1b3f50 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000dd11f00000,0x000000dd12000000] [id=8172]
+  0x000002577d1b52e0 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000dd12000000,0x000000dd12100000] [id=5196]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff800ba7e27]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000002577d17a150] Heap_lock - owner thread: 0x000002577d17f0c0
+
+Heap address: 0x00000000c9000000, size: 880 MB, Compressed Oops mode: 32-bit
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+Heap:
+ garbage-first heap   total 57344K, used 0K [0x00000000c9000000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 0K, capacity 0K, committed 0K, reserved 0K
+  class space    used 0K, capacity 0K, committed 0K, reserved 0K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+
+Card table byte_map: [0x000002577d260000,0x000002577d420000] _byte_map_base: 0x000002577cc18000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x000002577d1ac7f0, (CMBitMap*) 0x000002577d1ac830
+ Prev Bits: [0x000002577d5e0000, 0x000002577e3a0000)
+ Next Bits: [0x000002577e3a0000, 0x000002577f160000)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.026 Loaded shared library C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff6ea1f0000 - 0x00007ff6ea1fd000 	C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\java.exe
+0x00007ff849810000 - 0x00007ff849a06000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ff848dc0000 - 0x00007ff848e7d000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ff8471f0000 - 0x00007ff8474b9000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ff8476c0000 - 0x00007ff8477c0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ff8332a0000 - 0x00007ff8332b8000 	C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\jli.dll
+0x00007ff828720000 - 0x00007ff828739000 	C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\VCRUNTIME140.dll
+0x00007ff847ba0000 - 0x00007ff847d40000 	C:\Windows\System32\USER32.dll
+0x00007ff846fb0000 - 0x00007ff846fd2000 	C:\Windows\System32\win32u.dll
+0x00007ff847a40000 - 0x00007ff847a6a000 	C:\Windows\System32\GDI32.dll
+0x00007ff8474c0000 - 0x00007ff8475cb000 	C:\Windows\System32\gdi32full.dll
+0x00007ff847620000 - 0x00007ff8476bd000 	C:\Windows\System32\msvcp_win.dll
+0x00007ff834900000 - 0x00007ff834b9b000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.746_none_ca02b4b61b8320a4\COMCTL32.dll
+0x00007ff8479a0000 - 0x00007ff847a3e000 	C:\Windows\System32\msvcrt.dll
+0x00007ff848e80000 - 0x00007ff848eb0000 	C:\Windows\System32\IMM32.DLL
+0x00007ff833f80000 - 0x00007ff833f8c000 	C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\vcruntime140_1.dll
+0x00007ff81ce30000 - 0x00007ff81cec1000 	C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\msvcp140.dll
+0x00007ff8008f0000 - 0x00007ff80144e000 	C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\server\jvm.dll
+0x00007ff849170000 - 0x00007ff84921c000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ff847d40000 - 0x00007ff847ddc000 	C:\Windows\System32\sechost.dll
+0x00007ff847a70000 - 0x00007ff847b9b000 	C:\Windows\System32\RPCRT4.dll
+0x00007ff849690000 - 0x00007ff849698000 	C:\Windows\System32\PSAPI.DLL
+0x00007ff830630000 - 0x00007ff830639000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ff840520000 - 0x00007ff84052a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ff847930000 - 0x00007ff84799b000 	C:\Windows\System32\WS2_32.dll
+0x00007ff836930000 - 0x00007ff836957000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ff845830000 - 0x00007ff845842000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ff833c90000 - 0x00007ff833c9a000 	C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\jimage.dll
+0x00007ff845540000 - 0x00007ff845724000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ff82d780000 - 0x00007ff82d7ac000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ff847140000 - 0x00007ff8471c0000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ff8284d0000 - 0x00007ff8284de000 	C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\instrument.dll
+0x00007ff8286f0000 - 0x00007ff828715000 	C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\Nadya\.jdks\openjdk-15.0.2\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.746_none_ca02b4b61b8320a4;C:\Users\Nadya\.jdks\openjdk-15.0.2\bin\server
+
+VM Arguments:
+jvm_args: -javaagent:C:\Program Files\JetBrains2\IntelliJ IDEA Community Edition 2020.2.3\lib\idea_rt.jar=58658:C:\Program Files\JetBrains2\IntelliJ IDEA Community Edition 2020.2.3\bin -Dfile.encoding=UTF-8 
+java_command: ru.netology.MainKt
+java_class_path (initial): C:\Users\Nadya\IdeaProjects\homework3_2\build\classes\kotlin\main;C:\Users\Nadya\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk8\1.4.21\3ad7f99fb330947a12451ea16767d192d763600a\kotlin-stdlib-jdk8-1.4.21.jar;C:\Users\Nadya\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.4.21\26b6082f9296911bdcb8e72a7cc68692c7025a03\kotlin-stdlib-jdk7-1.4.21.jar;C:\Users\Nadya\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.4.21\4a668382d7c38688d3490afde93b6a113ed46698\kotlin-stdlib-1.4.21.jar;C:\Users\Nadya\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-common\1.4.21\7f48a062aa4b53215998780f7c245a4276828e1d\kotlin-stdlib-common-1.4.21.jar;C:\Users\Nadya\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 58720256                                  {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 922746880                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832780                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122912730                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122912730                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 922746880                              {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\Nadya\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains2\IntelliJ IDEA Community Edition 2020.2.3\bin;;C:\Gradle\gradle-6.8\bin;
+USERNAME=Nadya
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.662)
+OS uptime: 0 days 3:56 hours
+
+CPU: total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 78 stepping 3 microcode 0xcc, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, vzeroupper, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma, clflush, clflushopt
+
+Memory: 4k page, system-wide physical 3512M (159M free)
+TotalPageFile size 5560M (AvailPageFile size 5M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 108M, peak: 109M
+
+vm_info: OpenJDK 64-Bit Server VM (15.0.2+7-27) for windows-amd64 JRE (15.0.2+7-27), built on Dec  7 2020 20:02:38 by "mach5one" with unknown MS VC++:1925
+
+END.
